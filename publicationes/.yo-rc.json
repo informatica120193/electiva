@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "co.com.jaatuestam.publications",
+      "nativeLanguage": "es"
+    },
+    "jhipsterVersion": "6.7.1",
+    "applicationType": "monolith",
+    "baseName": "publicationes",
+    "packageName": "co.com.jaatuestam.publications",
+    "packageFolder": "co/com/jaatuestam/publications",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NWE1ODVhYWEwZTBmZGUyMzM0ZDYwMGUyYWExMWY0MjJmYTQ0MTcyNjE4YmU2NmJiMzJhOGE3M2M0YTRmZjBiOGM0MDhjNDEwM2FjZGM4ZGY2NzM2ZTA1M2EzNjU3MmYzNGQ1MDg0MzFjNGJmNzRlMDgwNzZmNGM2YzNhOTc2YjQ=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1583443770578,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "es",
+    "languages": ["es"],
+    "blueprints": []
+  }
+}
