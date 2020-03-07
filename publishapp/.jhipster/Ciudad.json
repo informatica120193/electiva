@@ -1,0 +1,35 @@
+{
+    "name": "Ciudad",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "habitantes",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "universidad",
+            "otherEntityRelationshipName": "ciudad",
+            "relationshipName": "universidad"
+        }
+    ],
+    "changelogDate": "20200307231800",
+    "entityTableName": "ciudad",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

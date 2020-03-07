@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-articulo-heading" jhiTranslate="testApp.articulo.home.createOrEditLabel">Create or edit a Articulo</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testApp.articulo.fecha" for="field_fecha">Fecha</label>
+                    <div class="d-flex">
+                        <input id="field_fecha" type="datetime-local" class="form-control" name="fecha" formControlName="fecha" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testApp.articulo.titulo" for="field_titulo">Titulo</label>
+                    <input type="text" class="form-control" name="titulo" id="field_titulo"
+                           formControlName="titulo"/>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="testApp.articulo.publicacion" for="field_publicacions">Publicacion</label>
+                    <select class="form-control" id="field_publicacions" multiple name="publicacions" formControlName="publicacions">
+                        <option [ngValue]="getSelected(editForm.get('publicacions')!.value, publicacionOption)" *ngFor="let publicacionOption of publicacions; trackBy: trackById">{{ publicacionOption.numero }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="testApp.articulo.autor" for="field_autors">Autor</label>
+                    <select class="form-control" id="field_autors" multiple name="autors" formControlName="autors">
+                        <option [ngValue]="getSelected(editForm.get('autors')!.value, autorOption)" *ngFor="let autorOption of autors; trackBy: trackById">{{ autorOption.nombre }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testApp.articulo.categoria" for="field_categoria">Categoria</label>
+                    <select class="form-control" id="field_categoria" name="categoria" formControlName="categoria">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="categoriaOption.id === editForm.get('categoria')!.value?.id ? editForm.get('categoria')!.value : categoriaOption" *ngFor="let categoriaOption of categorias; trackBy: trackById">{{ categoriaOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

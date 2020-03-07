@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="articulo">
+            <h2><span jhiTranslate="publishappApp.articulo.detail.title">Articulo</span> {{ articulo.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="publishappApp.articulo.fecha">Fecha</span></dt>
+                <dd>
+                    <span>{{ articulo.fecha }}</span>
+                </dd>
+                <dt><span jhiTranslate="publishappApp.articulo.titulo">Titulo</span></dt>
+                <dd>
+                    <span>{{ articulo.titulo }}</span>
+                </dd>
+                <dt><span jhiTranslate="publishappApp.articulo.publicacion">Publicacion</span></dt>
+                <dd>
+                    <span *ngFor="let publicacion of articulo.publicacions; let last = last">
+                        <a [routerLink]="['/publicacion', publicacion?.id, 'view']">{{ publicacion.numero }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="publishappApp.articulo.autor">Autor</span></dt>
+                <dd>
+                    <span *ngFor="let autor of articulo.autors; let last = last">
+                        <a [routerLink]="['/autor', autor?.id, 'view']">{{ autor.nombre }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="publishappApp.articulo.categoria">Categoria</span></dt>
+                <dd>
+                    <div *ngIf="articulo.categoria">
+                        <a [routerLink]="['/categoria', articulo.categoria?.id, 'view']">{{ articulo.categoria?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/articulo', articulo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

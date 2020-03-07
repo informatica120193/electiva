@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="publishappApp.articulo.home.title">Articulos</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-articulo" [routerLink]="['/articulo/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="publishappApp.articulo.home.createLabel">
+            Create a new Articulo
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="articulos?.length === 0">
+        <span jhiTranslate="publishappApp.articulo.home.notFound">No articulos found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="articulos?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="publishappApp.articulo.fecha">Fecha</span></th>
+                    <th scope="col" ><span jhiTranslate="publishappApp.articulo.titulo">Titulo</span></th>
+                    <th scope="col" ><span jhiTranslate="publishappApp.articulo.publicacion">Publicacion</span></th>
+                    <th scope="col" ><span jhiTranslate="publishappApp.articulo.autor">Autor</span></th>
+                    <th scope="col" ><span jhiTranslate="publishappApp.articulo.categoria">Categoria</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let articulo of articulos ;trackBy: trackId">
+                    <td><a [routerLink]="['/articulo', articulo.id, 'view']">{{ articulo.id }}</a></td>
+                    <td>{{ articulo.fecha | date:'medium' }}</td>
+                    <td>{{ articulo.titulo }}</td>
+                    <td>
+                        <span *ngFor="let publicacion of articulo.publicacions; let last = last">
+                            <a class="form-control-static" [routerLink]="['/publicacion', publicacion?.id, 'view']">{{ publicacion.numero }}</a>{{ last ? '' : ', ' }}
+                        </span>
+                    </td>
+                    <td>
+                        <span *ngFor="let autor of articulo.autors; let last = last">
+                            <a class="form-control-static" [routerLink]="['/autor', autor?.id, 'view']">{{ autor.nombre }}</a>{{ last ? '' : ', ' }}
+                        </span>
+                    </td>
+                    <td>
+                        <div *ngIf="articulo.categoria">
+                            <a [routerLink]="['/categoria', articulo.categoria?.id, 'view']" >{{ articulo.categoria?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/articulo', articulo.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/articulo', articulo.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(articulo)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

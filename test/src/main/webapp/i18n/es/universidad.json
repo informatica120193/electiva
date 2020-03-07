@@ -1,0 +1,25 @@
+{
+  "testApp": {
+    "universidad": {
+      "home": {
+        "title": "Universidads",
+        "createLabel": "Crear nuevo Universidad",
+        "createOrEditLabel": "Crear o editar Universidad",
+        "notFound": "Ningún Universidads encontrado"
+      },
+      "created": "Un nuevo Universidad ha sido creado con el identificador {{ param }}",
+      "updated": "Un Universidad ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Universidad ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Universidad {{ id }}?"
+      },
+      "detail": {
+        "title": "Universidad"
+      },
+      "nombre": "Nombre",
+      "direccion": "Direccion",
+      "autor": "Autor",
+      "ciudad": "Ciudad"
+    }
+  }
+}

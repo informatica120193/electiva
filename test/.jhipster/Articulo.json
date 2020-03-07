@@ -1,0 +1,48 @@
+{
+    "name": "Articulo",
+    "fields": [
+        {
+            "fieldName": "fecha",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "titulo",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "publicacion",
+            "otherEntityRelationshipName": "articulo",
+            "relationshipName": "publicacion",
+            "otherEntityField": "numero",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "autor",
+            "otherEntityRelationshipName": "articulo",
+            "relationshipName": "autor",
+            "otherEntityField": "nombre",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "categoria",
+            "otherEntityRelationshipName": "articulo",
+            "relationshipName": "categoria",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200307225700",
+    "entityTableName": "articulo",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

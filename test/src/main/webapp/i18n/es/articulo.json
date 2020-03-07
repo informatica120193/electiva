@@ -1,0 +1,26 @@
+{
+  "testApp": {
+    "articulo": {
+      "home": {
+        "title": "Articulos",
+        "createLabel": "Crear nuevo Articulo",
+        "createOrEditLabel": "Crear o editar Articulo",
+        "notFound": "Ningún Articulos encontrado"
+      },
+      "created": "Un nuevo Articulo ha sido creado con el identificador {{ param }}",
+      "updated": "Un Articulo ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Articulo ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Articulo {{ id }}?"
+      },
+      "detail": {
+        "title": "Articulo"
+      },
+      "fecha": "Fecha",
+      "titulo": "Titulo",
+      "publicacion": "Publicacion",
+      "autor": "Autor",
+      "categoria": "Categoria"
+    }
+  }
+}

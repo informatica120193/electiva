@@ -1,0 +1,41 @@
+entity Autor {
+	nombre String,
+    direccion String,
+    telefono String
+}
+entity Articulo {
+	fecha Instant,
+    titulo String
+}
+
+entity Publicacion {
+	fecha Instant,
+    numero String
+}
+
+entity Categoria {
+	nombre String,
+	descripcion String
+}
+
+entity Universidad {
+	nombre String,
+    direccion String
+}
+
+entity Ciudad {
+	nombre String,
+    descripcion String,
+    habitantes Long
+}
+
+relationship ManyToMany {
+	Articulo{publicacion(numero)} to Publicacion{articulo},
+    Articulo{autor(nombre)} to Autor{articulo},
+    Autor{universidad(nombre)} to Universidad{autor}
+}
+
+relationship OneToMany {
+	Categoria{articulo} to Articulo,
+    Ciudad{universidad} to Universidad
+}

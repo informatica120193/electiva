@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Autor.
+    -->
+    <changeSet id="20200307231300-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="autor_id"
+                                 baseTableName="autor_universidad"
+                                 constraintName="fk_autor_universidad_autor_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="autor"/>
+
+        <addForeignKeyConstraint baseColumnNames="universidad_id"
+                                 baseTableName="autor_universidad"
+                                 constraintName="fk_autor_universidad_universidad_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="universidad"/>
+        
+    </changeSet>
+</databaseChangeLog>
